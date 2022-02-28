@@ -2,6 +2,8 @@
 
 This repository is NOT the original repository, but a clone (not fork) with all private information (security and privacy) removed.
 
+Both of the repositories (original and public) are no longer maintained, and will be newly developed by another team of developers since the mid 2022.
+
 ![website-screen](./imgs/website-screen.png)
 
 
