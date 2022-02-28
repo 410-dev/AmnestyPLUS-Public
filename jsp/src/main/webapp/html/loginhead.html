@@ -1,0 +1,84 @@
+<style>
+    @font-face {
+        font-family:'AmnestyTradeGothic';
+        src: url('https://amnestyplus.org/en/fonts/AmnestyTradeGothic-BdCn20/amnesty.woff');
+        src: url('https://amnestyplus.org/en/fonts/AmnestyTradeGothic-BdCn20/amnesty.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    
+    .navbar {
+        font-family: "AmnestyTradeGothic";
+        background-color: #FEFF00;
+    }
+
+    .navbar a {
+        float: left;
+        font-size: 16px;
+        color: black;
+        text-align: center;
+        padding: 16px 18px;
+        text-decoration: none;
+        margin: 10px
+    }
+
+    .drpdwn {
+        float: left;
+        overflow: hidden;
+    }
+
+    .drpdwn .dropbtn {
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: black;
+        padding: 16px 18px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 10px;
+    }
+
+    .navbar a:hover, .drpdwn:hover .dropbtn {
+        background-color: #b8bf2a;
+    }
+
+    .drpdwn-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 10;
+    }
+
+    .drpdwn-content a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+    .drpdwn-content a:hover {
+        background-color: #ddd;
+    }
+
+    .drpdwn:hover .drpdwn-content {
+        display: block;
+    }
+
+</style>
+
+<div class="navbar">
+    <a id="loginas">username</a>
+    <div class="drpdwn">
+        <button class="dropbtn">Actions</button>
+        <div class="drpdwn-content">
+            <a href="#">Logout</a>
+            <a href="#">Account Settings</a>
+            <a href="#">View my articles</a>
+        </div>
+    </div>
+</div>
+

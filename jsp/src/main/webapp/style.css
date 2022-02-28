@@ -1,0 +1,793 @@
+/*-----------------------------------------------------------------------------------
+	en
+	About: A shiny new Blocs website.
+	Author: KIS
+	Version: 1.0
+	Built with Blocs
+-----------------------------------------------------------------------------------*/
+body{
+	margin:0;
+	padding:0;
+    background:#FFFFFF;
+    overflow-x:hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.page-container{overflow: hidden;} /* Prevents unwanted scroll space when scroll FX used. */
+a,button{transition: background .3s ease-in-out;outline: none!important;} /* Prevent ugly blue glow on chrome and safari */
+a:hover{text-decoration: none; cursor:pointer;}
+
+
+/* Preloader */
+
+.page-preloader{position: fixed;top: 0;bottom: 0;width: 100%;z-index:100000;background:#FFFFFF url("img/pageload-spinner.gif") no-repeat center center;animation-name: preloader-fade;animation-delay: 2s;animation-duration: 0.5s;animation-fill-mode: both;}
+.preloader-complete{animation-delay:0.1s;}
+@keyframes preloader-fade {0% {opacity: 1;visibility: visible;}100% {opacity: 0;visibility: hidden;}}
+
+/* = Web Fonts
+-------------------------------------------------------------- */
+
+@font-face {
+	font-family:'AmnestyTradeGothic';
+	src: url('./fonts/AmnestyTradeGothic/amnesty.woff');
+	src: url('./fonts/AmnestyTradeGothic/amnesty.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family:'Playfair';
+	src: url('./fonts/Playfair/PlayfairDisplay.woff');
+	scr: url('./fonts/Playfair/PlayfairDisplay.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family:'Playfair-Italic';
+	src: url('./fonts/Playfair/PlayfairDisplay-Italic.woff');
+	scr: url('./fonts/Playfair/PlayfairDisplay-Italic.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* = Blocs
+-------------------------------------------------------------- */
+
+
+.bloc{
+	width:100%;
+	clear:both;
+	background: 50% 50% no-repeat;
+	padding:0 20px;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	position:relative;
+	display:flex;
+}
+.bloc .container{
+	padding-left:0;
+	padding-right:0;
+}
+
+
+/* Sizes */
+
+.bloc-lg{
+	padding:100px 20px;
+}
+.bloc-md{
+	padding:50px 20px;
+}
+.bloc-sm{
+	padding:20px;
+}
+
+/* = Full Width Blocs 
+-------------------------------------------------------------- */
+
+.full-width-bloc{
+	padding-left:0;
+	padding-right:0;
+}
+.full-width-bloc .row{
+	margin-left:0;
+	margin-right:0;
+}
+.full-width-bloc .container{
+	width:100%;
+	max-width:100%!important;
+}
+.full-width-bloc .carousel img{
+	width:100%;
+	height:auto;
+}
+
+
+/* Dark theme */
+
+.d-bloc{
+	color:rgba(255,255,255,.7);
+}
+.d-bloc button:hover{
+	color:rgba(255,255,255,.9);
+}
+.d-bloc .icon-round,.d-bloc .icon-square,.d-bloc .icon-rounded,.d-bloc .icon-semi-rounded-a,.d-bloc .icon-semi-rounded-b{
+	border-color:rgba(255,255,255,.9);
+}
+.d-bloc .divider-h span{
+	border-color:rgba(255,255,255,.2);
+}
+.d-bloc .a-btn,.d-bloc .navbar a, .d-bloc a .icon-sm, .d-bloc a .icon-md, .d-bloc a .icon-lg, .d-bloc a .icon-xl, .d-bloc h1 a, .d-bloc h2 a, .d-bloc h3 a, .d-bloc h4 a, .d-bloc h5 a, .d-bloc h6 a, .d-bloc p a{
+	color:rgba(255,255,255,.6);
+}
+.d-bloc .a-btn:hover,.d-bloc .navbar a:hover,.d-bloc a:hover .icon-sm, .d-bloc a:hover .icon-md, .d-bloc a:hover .icon-lg, .d-bloc a:hover .icon-xl, .d-bloc h1 a:hover, .d-bloc h2 a:hover, .d-bloc h3 a:hover, .d-bloc h4 a:hover, .d-bloc h5 a:hover, .d-bloc h6 a:hover, .d-bloc p a:hover{
+	color:rgba(255,255,255,1);
+}
+.d-bloc .navbar-toggle .icon-bar{
+	background:rgba(255,255,255,1);
+}
+.d-bloc .btn-wire,.d-bloc .btn-wire:hover{
+	color:rgba(255,255,255,1);
+	border-color:rgba(255,255,255,1);
+}
+.d-bloc .card{
+	color:rgba(0,0,0,.5);
+}
+.d-bloc .card button:hover{
+	color:rgba(0,0,0,.7);
+}
+.d-bloc .card icon{
+	border-color:rgba(0,0,0,.7);
+}
+.d-bloc .card .divider-h span{
+	border-color:rgba(0,0,0,.1);
+}
+.d-bloc .card .a-btn{
+	color:rgba(0,0,0,.6);
+}
+.d-bloc .card .a-btn:hover{
+	color:rgba(0,0,0,1);
+}
+.d-bloc .card .btn-wire, .d-bloc .card .btn-wire:hover{
+	color:rgba(0,0,0,.7);
+	border-color:rgba(0,0,0,.3);
+}
+
+
+/* Light theme */
+
+.d-bloc .card,.l-bloc{
+	color:rgba(0,0,0,.5);
+}
+.d-bloc .card button:hover,.l-bloc button:hover{
+	color:rgba(0,0,0,.7);
+}
+.l-bloc .icon-round,.l-bloc .icon-square,.l-bloc .icon-rounded,.l-bloc .icon-semi-rounded-a,.l-bloc .icon-semi-rounded-b{
+	border-color:rgba(0,0,0,.7);
+}
+.d-bloc .card .divider-h span,.l-bloc .divider-h span{
+	border-color:rgba(0,0,0,.1);
+}
+.d-bloc .card .a-btn,.l-bloc .a-btn,.l-bloc .navbar a,.l-bloc a .icon-sm, .l-bloc a .icon-md, .l-bloc a .icon-lg, .l-bloc a .icon-xl, .l-bloc h1 a, .l-bloc h2 a, .l-bloc h3 a, .l-bloc h4 a, .l-bloc h5 a, .l-bloc h6 a, .l-bloc p a{
+	color:rgba(0,0,0,.6);
+}
+.d-bloc .card .a-btn:hover,.l-bloc .a-btn:hover,.l-bloc .navbar a:hover, .l-bloc a:hover .icon-sm, .l-bloc a:hover .icon-md, .l-bloc a:hover .icon-lg, .l-bloc a:hover .icon-xl, .l-bloc h1 a:hover, .l-bloc h2 a:hover, .l-bloc h3 a:hover, .l-bloc h4 a:hover, .l-bloc h5 a:hover, .l-bloc h6 a:hover, .l-bloc p a:hover{
+	color:rgba(0,0,0,1);
+}
+.l-bloc .navbar-toggle .icon-bar{
+	color:rgba(0,0,0,.6);
+}
+.d-bloc .card .btn-wire,.d-bloc .card .btn-wire:hover,.l-bloc .btn-wire,.l-bloc .btn-wire:hover{
+	color:rgba(0,0,0,.7);
+	border-color:rgba(0,0,0,.3);
+}
+
+/* Row Margin Offsets */
+
+.voffset{
+	margin-top:30px;
+}
+
+
+/* = NavBar
+-------------------------------------------------------------- */
+
+.hero .hero-nav{
+	padding-left:inherit;
+	padding-right:inherit;
+}
+/* Handle Multi Level Navigation */.navbar-light .navbar-nav .nav-link {
+	color: rgb(64, 64, 64);
+}
+.btco-menu li > a {
+	padding: 10px 15px;
+	color: #000;
+}
+.btco-menu .active a:focus,.btco-menu li a:focus ,.navbar > .show > a:focus{
+	background: transparent;
+	outline: 0;
+}
+.dropdown-menu .show > .dropdown-toggle::after{
+	transform: rotate(-90deg);
+}
+
+/* = Bric adjustment margins
+-------------------------------------------------------------- */
+
+.mg-clear{
+	margin:0;
+}
+.mg-sm{
+	margin-top:10px;
+	margin-bottom:5px;
+}
+.mg-md{
+	font-family: AmnestyTradeGothic;
+	margin-top:10px;
+	margin-bottom:20px;
+}
+
+/* = Buttons
+-------------------------------------------------------------- */
+
+.btn-d,.btn-d:hover,.btn-d:focus{
+	color:#FFF;
+	background:rgba(0,0,0,.3);
+}
+
+/* Prevent ugly blue glow on chrome and safari */
+button{
+	outline: none!important;
+}
+
+.a-block{
+	width:100%;
+	text-align:left;
+	display: inline-block;
+}
+.text-center .a-block{
+	text-align:center;
+}
+.dropdown a .caret{
+	margin:0 0 0 5px}.btn-dropdown .dropdown-menu .dropdown{
+	padding: 3px 20px;
+}
+
+/* = Icons
+-------------------------------------------------------------- */
+.icon-md{
+	font-size:30px!important;
+}
+
+
+
+
+.card-sq, .card-sq .card-header, .card-sq .card-footer{
+	border-radius:0;
+}
+.card-rd{
+	border-radius:30px;
+}
+.card-rd .card-header{
+	border-radius:29px 29px 0 0;
+}
+.card-rd .card-footer{
+	border-radius:0 0 29px 29px;
+}
+
+/* = Dividers
+-------------------------------------------------------------- */
+.divider-h{
+	padding:20px 0;
+	width:100%;
+	display:inline-block;
+}
+.divider-h span{
+	display: block;
+	border-top:1px solid transparent;
+}
+.divider-half{
+	width: 50%;
+	margin: 0 auto;
+}
+.dropdown-menu .divider-h,.dropdown-menu .divider-half{
+	padding:0;
+}
+
+
+
+.carousel-nav-icon{
+	fill: none;
+	stroke: #fff;
+	stroke-width: 2px;
+	fill-rule: evenodd;
+	stroke-linecap:round;
+}
+
+
+/* ScrollToTop button */
+
+.scrollToTop{
+	width:36px;
+	height:36px;
+	padding:5px;
+	position:fixed;
+	bottom:20px;
+	right:20px;
+	opacity:0;
+	z-index:999;
+	transition: all .3s ease-in-out;
+}
+.showScrollTop{
+	opacity: 1;
+}
+.scroll-to-top-btn-icon{
+	fill: none;
+	stroke: #fff;
+	stroke-width: 2px;
+	fill-rule: evenodd;
+	stroke-linecap:round;
+}
+
+/* = Custom Styling
+-------------------------------------------------------------- */
+
+h1,h2,h3,h4,h5,h6,p,label,.btn,a{
+	font-family:"AmnestyTradeGothic";
+}
+.container{
+	max-width:1140px;
+}
+.navbar-brand img{
+	width:50px;
+	height:60px;
+}
+.amnesty-logo{
+	font-size:40px;
+	line-height:20px;
+	font-family:"AmnestyTradeGothic";
+	color:#000000!important;
+}
+.header-nav{
+	font-family:"AmnestyTradeGothic";
+	color:#000000!important;
+	font-size:20px;
+	font-weight:normal;
+}
+.header-nav:hover{
+	font-family:"AmnestyTradeGothic";
+	font-size:20px;
+	color:#060706!important;
+}
+.amnesty-logo:hover:hover{
+	font-family:"AmnestyTradeGothic";
+	font-size:40px;
+	line-height:20px;
+	color:#585858!important;
+}
+.amnesty-nav-menu:hover:hover{
+	font-family:"AmnestyTradeGothic";
+	font-size:20px;
+	color:#8A8A8A!important;
+}
+.index-large-title{
+	font-size:60px;
+	color:#000000!important;
+	width:100%;
+	font-family:"AmnestyTradeGothic";
+}
+.index-image-small{
+	height:150px;
+	width:240px;
+}
+.index-week-x{
+	color:#070807!important;
+	font-family:"AmnestyTradeGothic";
+	font-size:42px;
+}
+.index-redline-1{
+	width:22.7%;
+	background-clip:content-box!important;
+	-webkit-background-clip:content-box!important;
+	background-color:#FF0034;
+	height:45px;
+}
+.index-divider-3-1{
+	background-clip:content-box!important;
+	-webkit-background-clip:content-box!important;
+	background-color:#FD1B23;
+}
+.index-divider-2{
+	width:36.4%;
+	background-clip:content-box!important;
+	-webkit-background-clip:content-box!important;
+	background-color:#FD1612;
+	height:45px;
+}
+.index-divider-3-2{
+	width:63.65%;
+	height:45px;
+	border-color:transparent!important;
+}
+.index-large-headline{
+	color:#000000!important;
+	font-size:30px;
+}
+.about-us-divider-2{
+	height:45px;
+	background-clip:content-box!important;
+	-webkit-background-clip:content-box!important;
+	background-color:#FD0B0A;
+	width:10%;
+}
+.about-us-divider-1{
+	width:16%;
+	background-color:#FD2427;
+	background-clip:content-box!important;
+	-webkit-background-clip:content-box!important;
+	height:45px;
+}
+.h1-color{
+	color:#ffffff;
+}
+.about-us-divider-3{
+	height:45px;
+	background-clip:content-box!important;
+	-webkit-background-clip:content-box!important;
+	background-color:#FD2427;
+	width:28%;
+}
+.get-involved-divider{
+	background-clip:content-box!important;
+	-webkit-background-clip:content-box!important;
+	background-color:#FD1C1C;
+	height:45px;
+	width:25%;
+	background-position:center center;
+	background-size:auto auto;
+	text-shadow:0px 0px 0px #000000;
+	margin-left:425px;
+}
+.h1-20-style{
+	font-size:30px;
+}
+.h2-default{
+	font-size:30px;
+	text-align:left;
+	font-family:"AmnestyTradeGothic";
+}
+.h1-bloc-12-style{
+	font-size:30px;
+}
+.h2-style{
+	font-size:30px;
+}
+.h1-26-style{
+	font-size:30px;
+}
+.members-profile-image{
+	width:239px;
+}
+.monthselector{
+	width:100%;
+}
+.article-title{
+	font-size:35px;
+	font-family:"AmnestyTradeGothic";
+	line-height:42px;
+}
+.h4-style{
+	font-size:15px;
+	color:#000000!important;
+}
+.h4-by-taewon-kwon-style{
+	font-size:15px;
+}
+.archive-title{
+	font-size:15px;
+}
+.h6-style{
+	font-size:16px;
+}
+.index-summary{
+	font-size:20px;
+	font-family:"AmnestyTradeGothic";
+}
+.about-us-image{
+	background-size:auto auto;
+	height:231px;
+}
+.link{
+	font-size:40px;
+	color:#000000!important;
+}
+.news-title-2{
+	color:#000000!important;
+	font-size:37px;
+	line-height:40px;
+}
+.index-featured-photo{
+	height:183px;
+}
+.feature-1{
+	font-size:17px;
+}
+.link-12895-style{
+	width:94.21%;
+}
+.index-featured-author{
+	font-size:20px;
+	color:#000000!important;
+}
+.feature-3{
+	font-size:20px;
+	width:80%;
+}
+.footer-slogan{
+	font-size:50px;
+	font-family:"AmnestyTradeGothic";
+}
+.img-bloc-62-style{
+	width:165px;
+}
+.img-210-style{
+	width:157px;
+}
+.link-38764-style{
+	width:100%;
+	font-size:30px;
+}
+.link-0-bloc-5-style{
+	width:91.63%;
+}
+.link-10211-style{
+	width:77.82%;
+}
+.carousel-style{
+	width:100%;
+}
+.index-large-image{
+	width:600px;
+	height:400px;
+}
+.img-223-1221jungwoook-style{
+	width:199px;
+}
+.img-225-style{
+	width:163px;
+}
+.link-bloc-62-style{
+	width:73.86%;
+}
+.small-headline{
+	width:100%;
+	font-family:"AmnestyTradeGothic";
+}
+.article-content{
+	font-family: Playfair;
+	font-size:20px;
+}
+
+.article-content-italic{
+	font-family: Playfair-Italic;
+	font-size: 20px;
+}
+
+.img-1229flora-style{
+	width:216px;
+}
+.img-226-style{
+	width:112px;
+}
+.link-18006-style{
+	width:100%;
+}
+.img-4-style{
+	width:239px;
+}
+.container-div-style{
+	height:281px;
+}
+.link-10559-style{
+	width:84.15%;
+}
+.article-image{
+	width:702px;
+}
+.img-232-style{
+	width:239px;
+}
+.img-bloc-66-style{
+	width:167px;
+}
+.img-0126irene-style{
+	width:217px;
+}
+.h1-default{
+	font-family:"AmnestyTradeGothic";
+	text-align:left;
+	font-size:40px;
+	font-weight:normal;
+	color:#000000!important;
+}
+.h3-default{
+	font-size:28px;
+	text-align:left;
+	font-family:"AmnestyTradeGothic";
+}
+.footer-title{
+	font-family:"AmnestyTradeGothic";
+	text-align:left;
+	font-size:24px;
+}
+.members-name{
+	font-family:"AmnestyTradeGothic";
+	font-size:40px;
+	color:#000000!important;
+	line-height:48px;
+}
+.members-role{
+	font-family:"AmnestyTradeGothic";
+	font-size:32px;
+	text-align:left;
+	color:#000000!important;
+	line-height:38px;
+}
+.members-bio{
+	font-family:"AmnestyTradeGothic";
+	font-size:16px;
+	color:rgba(0,0,0,0.35)!important;
+	line-height:19px;
+}
+.members-title{
+	font-family:"AmnestyTradeGothic";
+	font-size:40px;
+	color:#000000!important;
+	line-height:48px;
+}
+.article-author{
+	font-family:"AmnestyTradeGothic";
+	font-size:32px;
+	color:#000000!important;
+	text-align:left;
+	line-height:38px;
+}
+.article-publish-date{
+	font-family:"AmnestyTradeGothic";
+	font-size:28px;
+	line-height:33px;
+	text-align:left;
+	color:#000000!important;
+}
+.list-thumbnail{
+	height:146px;
+}
+.small-author{
+	font-family:"AmnestyTradeGothic";
+	line-height:38px;
+	font-size:20px;
+}
+
+/* = Colour
+-------------------------------------------------------------- */
+
+/* Background colour styles */
+
+.bgc-electric-yellow{
+	background-color:#FEFF00;
+}
+.bgc-black{
+	background-color:#000000;
+}
+
+/* Text colour styles */
+
+.tc-black{
+	color:#000000!important;
+}
+.tc-white{
+	color:#FFFFFF!important;
+}
+
+/* Link colour styles */
+
+.ltc-black{
+	color:#000000!important;
+}
+.ltc-black:hover{
+	color:#000000!important;
+}
+
+
+
+
+
+
+/* = Bloc Padding Multi Breakpoint
+-------------------------------------------------------------- */
+
+@media (min-width: 576px) {
+    .bloc-xxl-sm{padding:200px 20px;}
+    .bloc-xl-sm{padding:150px 20px;}
+    .bloc-lg-sm{padding:100px 20px;}
+    .bloc-md-sm{padding:50px 20px;}
+    .bloc-sm-sm{padding:20px;}
+    .bloc-no-padding-sm{padding:0 20px;}
+}
+@media (min-width: 768px) {
+    .bloc-xxl-md{padding:200px 20px;}
+    .bloc-xl-md{padding:150px 20px;}
+    .bloc-lg-md{padding:100px 20px;}
+    .bloc-md-md{padding:50px 20px;}
+    .bloc-sm-md{padding:20px 20px;}
+    .bloc-no-padding-md{padding:0 20px;}
+}
+@media (min-width: 992px) {
+    .bloc-xxl-lg{padding:200px 20px;}
+    .bloc-xl-lg{padding:150px 20px;}
+    .bloc-lg-lg{padding:100px 20px;}
+    .bloc-md-lg{padding:50px 20px;}
+    .bloc-sm-lg{padding:20px;}
+    .bloc-no-padding-lg{padding:0 20px;}
+}
+
+
+/* = Mobile adjustments 
+-------------------------------------------------------------- */
+@media (max-width: 1024px)
+{
+    .bloc.full-width-bloc, .bloc-tile-2.full-width-bloc .container, .bloc-tile-3.full-width-bloc .container, .bloc-tile-4.full-width-bloc .container{
+        padding-left: 0; 
+        padding-right: 0;  
+    }
+}
+@media (max-width: 991px)
+{
+    .container{width:100%;}
+    .bloc{padding-left: constant(safe-area-inset-left);padding-right: constant(safe-area-inset-right);} /* iPhone X Notch Support*/
+    .bloc-group, .bloc-group .bloc{display:block;width:100%;}
+}
+@media (max-width: 767px)
+{
+    .bloc-tile-2 .container, .bloc-tile-3 .container, .bloc-tile-4 .container{
+        padding-left:0;padding-right:0;
+    }
+    .btn-dwn{
+       display:none; 
+    }
+    .voffset{
+        margin-top:5px;
+    }
+    .voffset-md{
+        margin-top:20px;
+    }
+    .voffset-lg{
+        margin-top:30px;
+    }
+    form{
+        padding:5px;
+    }
+    .close-lightbox{
+        display:inline-block;
+    }
+    .blocsapp-device-iphone5{
+	   background-size: 216px 425px;
+	   padding-top:60px;
+	   width:216px;
+	   height:425px;
+    }
+    .blocsapp-device-iphone5 img{
+	   width: 180px;
+	   height: 320px;
+    }
+}
+@media (max-width: 575px){
+	.footer-link{
+		text-align:center;
+	}
+	
+}
+

@@ -1,0 +1,7 @@
+# macOS Files
+*.DS_Store
+
+
+# Outputs
+jsp/target/AmnestyPLUS-2021FEB/
+jsp/target/classes/
